@@ -1,466 +1,425 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mayur Murade - Operational Excellence Infographic</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Choosing a vibrant palette: Indigo, Cyan, and Emerald for a professional yet energetic look -->
-    <style>
-        /* Custom Chart Container Styling */
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px; /* Constraint width for readability */
-            margin-left: auto;
-            margin-right: auto;
-            height: 350px; /* Base height */
-            max-height: 400px;
-        }
-
-        @media (max-width: 640px) {
-            .chart-container {
-                height: 300px;
-            }
-        }
-
-        /* Timeline Connector Line */
-        .timeline-line::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 20px;
-            width: 4px;
-            background-color: #E5E7EB;
-            z-index: 0;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-5px);
-            transition: transform 0.3s ease;
-        }
-    </style>
-    <!-- 
-        Palette: Vibrant Professional
-        Primary: #4F46E5 (Indigo 600)
-        Secondary: #06B6D4 (Cyan 500)
-        Accent: #10B981 (Emerald 500)
-        Background: #F3F4F6 (Gray 100)
-        Text: #1F2937 (Gray 800)
-    -->
-    <!-- HTML Comment: Source Material Analysis & Narrative Plan
-        1. Material: CV of Mayur Murade, CI Professional.
-        2. Narrative: Start with high-impact summary -> Move to hard metrics (Charts) -> Show Skills (Radar) -> Career History -> Contact.
-        3. Visualizations:
-           - KPI Bar Chart: To compare improvements (FTR, Waste, etc.). Goal: Compare.
-           - Skill Radar: To show balance of LSS, Analytics, Leadership. Goal: Relationships.
-           - Tools Donut: Breakdown of technical toolset. Goal: Inform.
-           - Timeline: HTML structure. Goal: Change/History.
-        4. No SVG/Mermaid used.
-    -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mayur Murade · Quality & Manufacturing Excellence</title>
+<meta name="description" content="Mayur Murade — Lean Six Sigma Black Belt. 9+ years improving quality, capacity and productivity at Denso, Varroc and Ather Energy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f6f4; --surface:#ffffff; --surface-2:#f0efec; --line:#e2e1dc;
+  --ink:#121211; --ink-2:#52514e; --ink-3:#7a7974;
+  --brand:#2a78d6; --brand-ink:#1d5fae; --brand-soft:#e6f0fb;
+  --accent:#1baf7a; --warn:#eb6834;
+  --hero-a:#0f2a4a; --hero-b:#14467e;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#121211; --surface:#1a1a19; --surface-2:#232321; --line:#33332f;
+    --ink:#f0efec; --ink-2:#c3c2b7; --ink-3:#9a998f;
+    --brand:#3987e5; --brand-ink:#8bb8f0; --brand-soft:#1c2a3b;
+    --accent:#199e70; --warn:#d95926;
+    --hero-a:#0b1626; --hero-b:#10304f;
+    color-scheme:dark;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--brand-ink);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+.eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--brand-ink);margin-bottom:10px}
+h2{font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.2;letter-spacing:-.02em;margin-bottom:12px}
+.lead{color:var(--ink-2);max-width:680px;font-size:1.05rem}
+nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+nav .logo{font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+nav ul{display:flex;gap:22px;list-style:none;font-size:.9rem}
+nav ul a{color:var(--ink-2)}
+@media(max-width:720px){nav ul{display:none}}
+.hero{background:linear-gradient(135deg,var(--hero-a),var(--hero-b));color:#fff;padding:88px 0 64px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
+.hero .wrap{position:relative;z-index:1}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:6px 12px;border-radius:999px;font-size:.82rem;font-weight:600}
+.badge i{width:8px;height:8px;border-radius:50%;background:#4fd39f;display:inline-block}
+.hero h1{font-size:clamp(2.4rem,6vw,4rem);line-height:1.05;letter-spacing:-.03em;margin:22px 0 14px;font-weight:800}
+.hero h1 span{color:#9cc6f5}
+.hero p.sub{font-size:1.15rem;max-width:720px;color:rgba(255,255,255,.85)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:10px;font-weight:600;font-size:.95rem;transition:transform .15s}
+.btn:hover{text-decoration:none;transform:translateY(-2px)}
+.btn-primary{background:#fff;color:#0f2a4a}
+.btn-ghost{border:1px solid rgba(255,255,255,.35);color:#fff}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:52px}
+.stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:18px}
+.stat b{display:block;font-size:2rem;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.stat span{font-size:.85rem;color:rgba(255,255,255,.75)}
+@media(max-width:820px){.stats{grid-template-columns:repeat(2,1fr)}.stat b{font-size:1.45rem}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:900px){.grid-3{grid-template-columns:1fr 1fr}}
+@media(max-width:680px){.grid-2,.grid-3{grid-template-columns:1fr}}
+.chart-card{margin-top:32px}
+.chart-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.chart-head h3{font-size:1.05rem}
+.chart-head small{color:var(--ink-3)}
+#impact svg{width:100%;height:auto;display:block;overflow:visible}
+#impact text{font-family:inherit}
+.tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--bg);font-size:.82rem;padding:8px 10px;border-radius:8px;max-width:260px;opacity:0;transition:opacity .12s;z-index:50}
+.toggle-table{margin-top:10px;font-size:.85rem;background:none;border:none;color:var(--brand-ink);cursor:pointer;font-weight:600;font-family:inherit}
+table{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:10px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+th{color:var(--ink-3);font-weight:600}
+.ba{display:flex;flex-direction:column;gap:14px}
+.ba h4{font-size:1rem}
+.ba p{color:var(--ink-2);font-size:.9rem}
+.ba-row{display:grid;grid-template-columns:86px 1fr 64px;align-items:center;gap:10px;font-size:.85rem;color:var(--ink-2)}
+.ba-track{height:12px;background:var(--surface-2);border-radius:6px;overflow:hidden}
+.ba-fill{height:100%;border-radius:6px}
+.ba-row b{color:var(--ink);text-align:right}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:32px;position:relative}
+.step{padding:0 10px;position:relative;text-align:center}
+.step .dot{width:56px;height:56px;border-radius:50%;margin:0 auto 14px;display:grid;place-items:center;font-weight:800;font-size:1.2rem;background:var(--brand);color:#fff;position:relative;z-index:1;box-shadow:0 0 0 6px var(--bg)}
+.flow::before{content:"";position:absolute;top:28px;left:10%;right:10%;height:2px;background:var(--line)}
+.step h4{font-size:.95rem;margin-bottom:6px}
+.step p{font-size:.84rem;color:var(--ink-2)}
+@media(max-width:820px){.flow{grid-template-columns:1fr;gap:18px}.flow::before{display:none}.step{display:grid;grid-template-columns:56px 1fr;gap:14px;text-align:left}.step .dot{margin:0}}
+.proj{display:flex;flex-direction:column;gap:10px;transition:transform .2s,border-color .2s}
+.proj:hover{transform:translateY(-4px);border-color:var(--brand)}
+.proj .tag{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.proj h3{font-size:1.08rem;line-height:1.3}
+.proj p{color:var(--ink-2);font-size:.92rem;flex:1}
+.proj .result{font-weight:700;color:var(--ink);background:var(--brand-soft);padding:8px 12px;border-radius:8px;font-size:.88rem}
+.pill{display:inline-block;font-size:.72rem;padding:3px 8px;border-radius:999px;background:var(--surface-2);color:var(--ink-2);margin:2px 4px 0 0}
+.tl{position:relative;margin-top:32px;padding-left:28px}
+.tl::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.tl-item{position:relative;margin-bottom:22px}
+.tl-item::before{content:"";position:absolute;left:-26px;top:22px;width:14px;height:14px;border-radius:50%;background:var(--surface);border:3px solid var(--brand)}
+.tl-item.now::before{background:var(--brand)}
+.tl-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.tl-head h3{font-size:1.05rem}
+.tl-head .co{color:var(--brand-ink);font-weight:600;font-size:.92rem}
+.when{font-size:.8rem;font-weight:600;color:var(--ink-3);background:var(--surface-2);padding:3px 10px;border-radius:999px;height:fit-content}
+.tl-item ul{margin:10px 0 0 18px;color:var(--ink-2);font-size:.92rem}
+.tl-item li{margin-bottom:4px}
+.skills h4{font-size:.95rem;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:.84rem;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink)}
+.cred{display:flex;gap:14px;align-items:flex-start}
+.cred .ic{flex:none;width:44px;height:44px;border-radius:12px;background:var(--brand-soft);display:grid;place-items:center;color:var(--brand-ink)}
+.cred h4{font-size:.98rem}
+.cred p{font-size:.86rem;color:var(--ink-2)}
+.contact{background:linear-gradient(135deg,var(--hero-a),var(--hero-b));color:#fff;border-radius:20px;padding:44px;text-align:center}
+.contact h2{color:#fff}
+.contact p{color:rgba(255,255,255,.8);max-width:560px;margin:0 auto}
+footer{text-align:center;color:var(--ink-3);font-size:.82rem;padding:28px 0 40px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.hero h1,.hero .sub,.hero .cta,.hero .badge{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.hero .sub{animation-delay:.15s}.hero .cta{animation-delay:.3s}
+.stat{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.stat:nth-child(1){animation-delay:.4s}.stat:nth-child(2){animation-delay:.5s}.stat:nth-child(3){animation-delay:.6s}.stat:nth-child(4){animation-delay:.7s}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.badge i{animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(79,211,159,.6)}70%{box-shadow:0 0 0 8px rgba(79,211,159,0)}100%{box-shadow:0 0 0 0 rgba(79,211,159,0)}}
+.hero::before{content:"";position:absolute;width:520px;height:520px;right:-120px;top:-160px;border-radius:50%;background:radial-gradient(circle,rgba(57,135,229,.45),transparent 65%);animation:drift 14s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate(-80px,90px) scale(1.15)}}
+.ba-fill{width:0!important;transition:width 1.2s cubic-bezier(.2,.7,.2,1)}
+.ba.in .ba-fill{width:var(--w)!important}
+.step .dot{transition:transform .3s}
+.step:hover .dot{transform:scale(1.12)}
+.flow.in .step{animation:rise .7s both}
+.flow.in .step:nth-child(2){animation-delay:.12s}.flow.in .step:nth-child(3){animation-delay:.24s}.flow.in .step:nth-child(4){animation-delay:.36s}.flow.in .step:nth-child(5){animation-delay:.48s}
+.flow::before{transform:scaleX(0);transform-origin:left;transition:transform 1.4s ease .2s}
+.flow.in::before{transform:scaleX(1)}
+.vsm-card{margin-top:32px;padding:20px 20px 12px}
+.vsm-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.vsm-scroll svg{min-width:900px;width:100%;height:auto;display:block}
+.vsm-scroll text{font-family:inherit}
+.vsm-hint{display:none;font-size:.8rem;color:var(--ink-3);margin-bottom:6px}
+@media(max-width:900px){.vsm-hint{display:block}}
+.vsm-legend{display:flex;flex-wrap:wrap;gap:16px;font-size:.8rem;color:var(--ink-2);margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+.vsm-legend span{display:inline-flex;align-items:center;gap:6px}
+.v-el{opacity:0;transform:translateY(10px);transform-box:fill-box;transition:opacity .5s ease,transform .5s ease}
+.vsm.in .v-el{opacity:1;transform:none}
+.push{stroke-dasharray:10 6;animation:flow 1.2s linear infinite}
+.info{stroke-dasharray:4 4;animation:flow 2.4s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-32}}
+.proc{cursor:pointer}
+.proc rect.box{transition:fill .2s,stroke .2s}
+.proc:hover rect.box{fill:var(--brand-soft);stroke:var(--brand)}
+.burst{transform-box:fill-box;transform-origin:center}
+.vsm.in .burst{animation:pop .6s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes pop{from{transform:scale(0) rotate(-40deg)}to{transform:none}}
+@media (prefers-reduced-motion:reduce){.reveal,.v-el{opacity:1!important;transform:none!important}.push,.info,.hero::before,.badge i{animation:none!important}.ba-fill{width:var(--w)!important}}
+</style>
 </head>
-<body class="bg-gray-100 text-gray-800 font-sans leading-relaxed">
-
-    <!-- Hero Section -->
-    <header class="bg-gradient-to-r from-indigo-700 to-cyan-600 text-white shadow-lg">
-        <div class="container mx-auto px-6 py-12">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0 text-center md:text-left">
-                    <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-2">MAYUR MURADE</h1>
-                    <h2 class="text-xl md:text-2xl font-light opacity-90">Continuous Improvement & Operational Excellence Professional</h2>
-                    <p class="mt-4 text-indigo-100 max-w-2xl">
-                        Lean Six Sigma Black Belt | Data Analytics (Power BI/Looker Studio) | Process Standardization
-                    </p>
-                </div>
-                <div class="text-center md:text-right bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20">
-                    <p class="font-bold text-3xl">~8 Years</p>
-                    <p class="text-sm opacity-80 uppercase tracking-wider">Experience</p>
-                    <div class="mt-4 text-lg">
-                        <span class="block">📍 Pune, India</span>
-                        <span class="block text-sm mt-1">📞 +91 9970628154</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content Grid -->
-    <main class="container mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-12 gap-8">
-
-        <!-- Introduction Section -->
-        <div class="md:col-span-12 bg-white rounded-xl shadow-md p-8 border-l-8 border-indigo-600">
-            <h3 class="text-2xl font-bold text-gray-800 mb-4">Executive Summary</h3>
-            <p class="text-lg text-gray-600">
-                Results-oriented professional driving <strong>manufacturing excellence</strong> through data-driven transformation. 
-                Expert in bridging the gap between traditional <strong>Lean Six Sigma</strong> methodologies and modern <strong>Digital Analytics</strong>. 
-                Proven track record of improving First-Time-Right metrics by over 30% and reducing waste significantly through structured DMAIC initiatives.
-            </p>
-        </div>
-
-        <!-- Section 1: Quantitative Impact (Charts) -->
-        <div class="md:col-span-12 lg:col-span-8">
-            <div class="bg-white rounded-xl shadow-md p-6 card-hover h-full">
-                <div class="mb-6">
-                    <h3 class="text-2xl font-bold text-indigo-700 flex items-center gap-2">
-                        <span class="text-3xl">&#9881;</span> Operational Impact Analysis
-                    </h3>
-                    <p class="text-gray-600 mt-2">
-                        A quantitative look at key process improvements delivered across varied manufacturing environments (Ather, Varroc, Denso). 
-                        High-impact metrics highlight efficiency gains and defect reductions.
-                    </p>
-                </div>
-                
-                <!-- Chart Container -->
-                <div class="chart-container">
-                    <canvas id="impactChart"></canvas>
-                </div>
-                <div class="mt-4 text-sm text-gray-500 text-center italic">
-                    * Percentage improvements achieved through Lean/DMAIC interventions.
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 2: Key Metric Highlights (Cards) -->
-        <div class="md:col-span-12 lg:col-span-4 flex flex-col gap-6">
-            <!-- Metric 1 -->
-            <div class="bg-gradient-to-br from-emerald-500 to-teal-600 text-white rounded-xl p-6 shadow-md relative overflow-hidden">
-                <div class="absolute top-0 right-0 text-9xl opacity-10 font-bold -mr-4 -mt-4">%</div>
-                <h4 class="text-lg font-semibold opacity-90">FTR Improvement</h4>
-                <div class="flex items-end gap-2 mt-2">
-                    <span class="text-5xl font-bold">58</span>
-                    <span class="text-2xl mb-2">➡</span>
-                    <span class="text-5xl font-bold text-yellow-300">92%</span>
-                </div>
-                <p class="mt-4 text-sm opacity-90">First-Time-Right quality metric boost achieved at Varroc via DMAIC & RCA.</p>
-            </div>
-
-            <!-- Metric 2 -->
-            <div class="bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-xl p-6 shadow-md">
-                <h4 class="text-lg font-semibold opacity-90">Takt Time Reduction</h4>
-                <div class="flex items-baseline gap-2 mt-2">
-                    <span class="text-6xl font-bold">18%</span>
-                    <span class="text-xl">Faster</span>
-                </div>
-                <p class="mt-4 text-sm opacity-90">Reduction in assembly line takt time at Ather Energy through time-motion studies.</p>
-            </div>
-
-            <!-- Metric 3 -->
-            <div class="bg-white rounded-xl p-6 shadow-md border-t-4 border-cyan-500">
-                <h4 class="text-lg font-bold text-gray-700">Cost & Space</h4>
-                <ul class="mt-4 space-y-3">
-                    <li class="flex items-center gap-3">
-                        <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
-                        <span><strong>30%</strong> Storage Efficiency</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
-                        <span><strong>75%</strong> Lot Size Reduction</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
-                        <span><strong>20%</strong> Defect Reduction</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Section 3: Core Competencies (Radar Chart) -->
-        <div class="md:col-span-12 md:col-span-6">
-            <div class="bg-white rounded-xl shadow-md p-6 h-full">
-                <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-                    <span class="text-indigo-500 text-2xl">&#128202;</span> Professional Competency Profile
-                </h3>
-                <p class="text-sm text-gray-600 mb-6">
-                    A balanced mix of technical engineering methodology, digital data capability, and leadership soft skills.
-                </p>
-                <div class="chart-container">
-                    <canvas id="skillsRadar"></canvas>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 4: Technical Toolkit (Donut Chart) -->
-        <div class="md:col-span-12 md:col-span-6">
-            <div class="bg-white rounded-xl shadow-md p-6 h-full">
-                <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-                    <span class="text-indigo-500 text-2xl">&#128187;</span> Digital & Technical Proficiency
-                </h3>
-                <p class="text-sm text-gray-600 mb-6">
-                    Tools leveraged to drive "Smart Manufacturing" and data governance.
-                </p>
-                <div class="chart-container">
-                    <canvas id="toolsDonut"></canvas>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 5: Professional Journey (Timeline) -->
-        <div class="md:col-span-12">
-            <div class="bg-white rounded-xl shadow-md p-8">
-                <h3 class="text-2xl font-bold text-gray-800 mb-8 border-b pb-4">Professional Timeline</h3>
-                
-                <div class="relative timeline-line pl-4 md:pl-8 space-y-12">
-                    
-                    <!-- Role 1 -->
-                    <div class="relative z-10 pl-8">
-                        <div class="absolute left-0 top-1 w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white text-lg font-bold shadow-lg ring-4 ring-white">
-                            &#128640;
-                        </div>
-                        <div class="bg-gray-50 rounded-lg p-6 hover:bg-indigo-50 transition duration-300 border border-gray-200">
-                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
-                                <div>
-                                    <h4 class="text-xl font-bold text-gray-900">Assistant Manager — Industrial Engineering & CI</h4>
-                                    <p class="text-indigo-600 font-medium">Ather Energy</p>
-                                </div>
-                                <span class="text-sm font-semibold bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full mt-2 md:mt-0 w-fit">Jun 2024 – Present</span>
-                            </div>
-                            <p class="text-gray-700 mb-3">Focus on process health, standardization, and productivity within high-growth EV operations.</p>
-                            <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
-                                <li>Designed interactive <strong>Power BI dashboards</strong> for process health monitoring.</li>
-                                <li>Reduced assembly line takt time by <strong>18%</strong>.</li>
-                                <li>Developed Factory Workforce Calculation Models.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Role 2 -->
-                    <div class="relative z-10 pl-8">
-                        <div class="absolute left-0 top-1 w-10 h-10 bg-cyan-500 rounded-full flex items-center justify-center text-white text-lg font-bold shadow-lg ring-4 ring-white">
-                            &#9881;
-                        </div>
-                        <div class="bg-gray-50 rounded-lg p-6 hover:bg-indigo-50 transition duration-300 border border-gray-200">
-                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
-                                <div>
-                                    <h4 class="text-xl font-bold text-gray-900">Assistant Manager — Project & Assembly</h4>
-                                    <p class="text-cyan-600 font-medium">Varroc Engineering Ltd.</p>
-                                </div>
-                                <span class="text-sm font-semibold bg-cyan-100 text-cyan-700 px-3 py-1 rounded-full mt-2 md:mt-0 w-fit">2017 – 2024</span>
-                            </div>
-                            <p class="text-gray-700 mb-3">Led Lean Six Sigma projects resulting in significant quality and cost improvements.</p>
-                            <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
-                                <li>Improved FTR from <strong>58% to 92%</strong> via DMAIC.</li>
-                                <li>Reduced solder skip defects by <strong>20%</strong>.</li>
-                                <li>Reduced machining line waste by <strong>25%</strong>.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Role 3 -->
-                    <div class="relative z-10 pl-8">
-                        <div class="absolute left-0 top-1 w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center text-white text-lg font-bold shadow-lg ring-4 ring-white">
-                            &#128200;
-                        </div>
-                        <div class="bg-gray-50 rounded-lg p-6 hover:bg-indigo-50 transition duration-300 border border-gray-200">
-                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
-                                <div>
-                                    <h4 class="text-xl font-bold text-gray-900">Senior Engineer — Production Engineering</h4>
-                                    <p class="text-emerald-600 font-medium">Denso Haryana Private Ltd.</p>
-                                </div>
-                                <span class="text-sm font-semibold bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full mt-2 md:mt-0 w-fit">2017 – 2021</span>
-                            </div>
-                            <p class="text-gray-700 mb-3">Focused on Lean conversion, JIT implementation, and ergonomic risk reduction.</p>
-                            <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
-                                <li>Reduced lot sizes by <strong>75%</strong> (Kanban).</li>
-                                <li>Mitigated ergonomic risks by <strong>40%</strong>.</li>
-                                <li>Integrated IoT sensors for real-time data.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer / Credentials -->
-        <div class="md:col-span-12 bg-gray-900 text-white rounded-xl p-8 text-center shadow-lg">
-            <h3 class="text-2xl font-bold mb-4">Credentials & Education</h3>
-            <div class="flex flex-wrap justify-center gap-6 text-sm md:text-base">
-                <span class="px-4 py-2 bg-gray-800 rounded-full border border-gray-700">🏆 Lean Six Sigma Black Belt</span>
-                <span class="px-4 py-2 bg-gray-800 rounded-full border border-gray-700">🎓 MBA Operations</span>
-                <span class="px-4 py-2 bg-gray-800 rounded-full border border-gray-700">🎓 B.E. Mechanical</span>
-            </div>
-            <div class="mt-8 border-t border-gray-700 pt-6">
-                <p class="text-gray-400">Ready to drive value creation and automation enablement.</p>
-                <p class="text-indigo-400 font-bold mt-2">mayurmurade@gmail.com</p>
-            </div>
-        </div>
-
-    </main>
-
-    <script>
-        // --- Utility: Text Wrapping Function for Chart Labels ---
-        function splitLabel(label, maxLength) {
-            if (label.length <= maxLength) return label;
-            var words = label.split(' ');
-            var lines = [];
-            var currentLine = words[0];
-
-            for (var i = 1; i < words.length; i++) {
-                if ((currentLine + " " + words[i]).length <= maxLength) {
-                    currentLine += " " + words[i];
-                } else {
-                    lines.push(currentLine);
-                    currentLine = words[i];
-                }
-            }
-            lines.push(currentLine);
-            return lines;
-        }
-
-        // --- Shared Tooltip Config ---
-        const sharedTooltipConfig = {
-            callbacks: {
-                title: function(tooltipItems) {
-                    const item = tooltipItems[0];
-                    let label = item.chart.data.labels[item.dataIndex];
-                    if (Array.isArray(label)) {
-                        return label.join(' ');
-                    } else {
-                        return label;
-                    }
-                }
-            }
-        };
-
-        // --- Chart 1: Impact Analysis (Bar Chart) ---
-        const ctxImpact = document.getElementById('impactChart').getContext('2d');
-        const impactLabels = [
-            "FTR Quality Improv.", 
-            "Waste Reduction", 
-            "Throughput Increase", 
-            "Storage Efficiency", 
-            "Takt Time Reduc.",
-            "Lot Size Reduc.",
-            "Ergonomic Risk Reduc."
-        ];
-        
-        // Wrap labels
-        const processedImpactLabels = impactLabels.map(l => splitLabel(l, 14));
-
-        new Chart(ctxImpact, {
-            type: 'bar',
-            data: {
-                labels: processedImpactLabels,
-                datasets: [{
-                    label: 'Improvement Percentage (%)',
-                    data: [34, 25, 12, 30, 18, 75, 40], // FTR 58->92 is 34% point gain
-                    backgroundColor: [
-                        'rgba(79, 70, 229, 0.8)', // Indigo
-                        'rgba(16, 185, 129, 0.8)', // Emerald
-                        'rgba(6, 182, 212, 0.8)',  // Cyan
-                        'rgba(245, 158, 11, 0.8)', // Amber
-                        'rgba(236, 72, 153, 0.8)', // Pink
-                        'rgba(99, 102, 241, 0.8)', // Indigo Light
-                        'rgba(20, 184, 166, 0.8)'  // Teal
-                    ],
-                    borderColor: [
-                        'rgba(79, 70, 229, 1)',
-                        'rgba(16, 185, 129, 1)',
-                        'rgba(6, 182, 212, 1)',
-                        'rgba(245, 158, 11, 1)',
-                        'rgba(236, 72, 153, 1)',
-                        'rgba(99, 102, 241, 1)',
-                        'rgba(20, 184, 166, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: '% Improvement'
-                        }
-                    }
-                },
-                plugins: {
-                    legend: { display: false },
-                    tooltip: sharedTooltipConfig
-                }
-            }
-        });
-
-        // --- Chart 2: Skills Radar ---
-        const ctxRadar = document.getElementById('skillsRadar').getContext('2d');
-        const skillLabels = ["Lean Six Sigma", "Data Analytics (Power BI/Looker Studio)", "Process Standardization", "Leadership & Coaching", "Automation Readiness", "Agile/Scrum"];
-        const processedSkillLabels = skillLabels.map(l => splitLabel(l, 16));
-
-        new Chart(ctxRadar, {
-            type: 'radar',
-            data: {
-                labels: processedSkillLabels,
-                datasets: [{
-                    label: 'Competency Level',
-                    data: [95, 85, 90, 80, 75, 70], // Estimated based on "Core Competencies"
-                    fill: true,
-                    backgroundColor: 'rgba(6, 182, 212, 0.2)', // Cyan transparent
-                    borderColor: 'rgba(6, 182, 212, 1)',
-                    pointBackgroundColor: 'rgba(79, 70, 229, 1)',
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: 'rgba(79, 70, 229, 1)'
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    r: {
-                        angleLines: { color: 'rgba(0,0,0,0.1)' },
-                        grid: { color: 'rgba(0,0,0,0.1)' },
-                        pointLabels: {
-                            font: { size: 11 }
-                        },
-                        suggestedMin: 0,
-                        suggestedMax: 100
-                    }
-                },
-                plugins: {
-                    tooltip: sharedTooltipConfig,
-                    legend: { display: false }
-                }
-            }
-        });
-
-        // --- Chart 3: Tools Donut ---
-        const ctxDonut = document.getElementById('toolsDonut').getContext('2d');
-        const toolLabels = ["BI & Analytics", "AutoCAD & Simulation", "SAP / ERP Systems", "MS Power Platform", "JIRA / Agile"];
-        
-        new Chart(ctxDonut, {
-            type: 'doughnut',
-            data: {
-                labels: toolLabels,
-                datasets: [{
-                    label: 'Proficiency',
-                    data: [35, 25, 20, 10, 10], // Rough distribution of focus
-                    backgroundColor: [
-                        '#4F46E5', // Indigo
-                        '#06B6D4', // Cyan
-                        '#10B981', // Emerald
-                        '#F59E0B', // Amber
-                        '#6366F1'  // Indigo Light
-                    ],
-                    hoverOffset: 4
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    tooltip: sharedTooltipConfig,
-                    legend: {
-                        position: 'bottom',
-                        labels: { boxWidth: 12, font: { size: 11 } }
-                    }
-                }
-            }
-        });
-    </script>
+<body>
+<nav><div class="wrap">
+  <a class="logo" href="#top">Mayur Murade</a>
+  <ul>
+    <li><a href="#impact-sec">Impact</a></li>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#vsm">Value stream</a></li>
+    <li><a href="#career">Career</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div></nav>
+<header class="hero" id="top"><div class="wrap">
+  <span class="badge"><i></i> Lean Six Sigma Black Belt · Quality & Manufacturing Excellence</span>
+  <h1>Less variation.<br><span>Better quality. Gains that last.</span></h1>
+  <p class="sub">I'm Mayur Murade, a Lean Six Sigma Black Belt with 9+ years in automotive and EV manufacturing at Denso, Varroc and Ather Energy. I combine DMAIC, data and shop-floor know-how to raise first-pass quality, capacity and productivity, then build the systems and skills that keep the gains in place.</p>
+  <div class="cta">
+    <a class="btn btn-primary" href="https://www.linkedin.com/in/mayur-murade" target="_blank" rel="noopener">View LinkedIn →</a>
+    <a class="btn btn-ghost" href="mailto:mayurmurade@gmail.com">mayurmurade@gmail.com</a>
+    <a class="btn btn-ghost" href="https://credential.certifyme.online/QRVerify/343d550b18448" target="_blank" rel="noopener">Verify Black Belt ✓</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>58% → <span data-to="92">92</span>%</b><span>First-Time-Right through DMAIC</span></div>
+    <div class="stat"><b>+<span data-to="30">30</span>%</b><span>Traction Motor Controller capacity</span></div>
+    <div class="stat"><b><span data-to="15">15</span>% YoY</b><span>Productivity across a 170-person operation</span></div>
+    <div class="stat"><b><span data-to="2500" data-fmt="comma">2,500</span>+</b><span>Employees covered by a shift redesign I led</span></div>
+  </div>
+</div></header>
+<main>
+<section id="impact-sec"><div class="wrap">
+  <p class="eyebrow">Measured impact</p>
+  <h2>Results across three manufacturers</h2>
+  <p class="lead">Every number below comes from a project I led or ran, with a defined baseline. Bars show the size of each improvement.</p>
+  <div class="card chart-card">
+    <div class="chart-head"><h3>Improvement by project (%)</h3><small>Hover a bar for context</small></div>
+    <div id="impact"></div>
+    <button class="toggle-table" id="tblBtn" aria-expanded="false">Show as table</button>
+    <div id="tblWrap" hidden></div>
+  </div>
+  <div class="grid-2" style="margin-top:20px">
+    <div class="card ba">
+      <h4>First-Time-Right, Varroc electronics line</h4>
+      <p>DMAIC with a verified root cause and a control plan, not extra inspection.</p>
+      <div class="ba-row"><span>Before</span><div class="ba-track"><div class="ba-fill" style="--w:58%;background:var(--ink-3)"></div></div><b>58%</b></div>
+      <div class="ba-row"><span>After</span><div class="ba-track"><div class="ba-fill" style="--w:92%;background:var(--brand)"></div></div><b>92%</b></div>
+    </div>
+    <div class="card ba">
+      <h4>Motor decanting redesign, Ather</h4>
+      <p>MOST and REBA studies built into the workstation design: safer and faster.</p>
+      <div class="ba-row"><span>Risk before</span><div class="ba-track"><div class="ba-fill" style="--w:100%;background:var(--ink-3)"></div></div><b>10</b></div>
+      <div class="ba-row"><span>Risk after</span><div class="ba-track"><div class="ba-fill" style="--w:30%;background:var(--accent)"></div></div><b>3</b></div>
+      <div class="ba-row"><span>Cycle before</span><div class="ba-track"><div class="ba-fill" style="--w:100%;background:var(--ink-3)"></div></div><b>4.00 min</b></div>
+      <div class="ba-row"><span>Cycle after</span><div class="ba-track"><div class="ba-fill" style="--w:66.3%;background:var(--accent)"></div></div><b>2.65 min</b></div>
+    </div>
+  </div>
+</div></section>
+<section id="approach" style="background:var(--surface);border-block:1px solid var(--line)"><div class="wrap">
+  <p class="eyebrow">How I work</p>
+  <h2>DMAIC, run for results that last</h2>
+  <p class="lead">Each phase has an evidence gate. Projects run with a clear rhythm (PI planning, epics, key results and sprint reviews), so they finish on time and deliver what the charter promised.</p>
+  <div class="flow">
+    <div class="step"><div class="dot">D</div><div><h4>Define</h4><p>One problem, one metric, a written definition and a charter signed off by Finance.</p></div></div>
+    <div class="step"><div class="dot">M</div><div><h4>Measure</h4><p>Check the measurement system before trusting any Pareto or Cpk.</p></div></div>
+    <div class="step"><div class="dot">A</div><div><h4>Analyse</h4><p>Stratify, then prove the root cause with data or controlled trials.</p></div></div>
+    <div class="step"><div class="dot">I</div><div><h4>Improve</h4><p>Change the process, pilot it with operators, and validate the result.</p></div></div>
+    <div class="step"><div class="dot">C</div><div><h4>Control</h4><p>Control plans, SPC, skill certification and audits so the gain holds.</p></div></div>
+  </div>
+</div></section>
+<section id="projects"><div class="wrap">
+  <p class="eyebrow">Featured work</p>
+  <h2>Selected projects</h2>
+  <p class="lead">Quality, capacity, digital tools and large-scale change: projects where the result held after I moved on.</p>
+  <div class="grid-3" style="margin-top:32px">
+    <article class="card proj"><span class="tag">Quality · Varroc</span><h3>First-Time-Right DMAIC</h3><p>Defined FTR, checked inspection reliability, proved root causes with trials, and locked in parameter controls and reaction plans.</p><div class="result">FTR 58% → 92%</div><div><span class="pill">DMAIC</span><span class="pill">RCA</span><span class="pill">Control plan</span></div></article>
+    <article class="card proj"><span class="tag">Quality · Varroc</span><h3>Solder skip defect reduction</h3><p>Stratified PCBA/SMT defects and controlled the process parameters behind solder skips.</p><div class="result">Solder skips −20%</div><div><span class="pill">SMT</span><span class="pill">Process control</span></div></article>
+    <article class="card proj"><span class="tag">Change leadership · Ather</span><h3>Plant-wide shift-timing redesign</h3><p>Set one agreed definition of available production time. Scored the options on a Pugh matrix with Production, Quality, EHS, Admin and HR, then lined up breaks and transport.</p><div class="result">2,500+ employees, 2 plants</div><div><span class="pill">Pugh matrix</span><span class="pill">Stakeholders</span></div></article>
+    <article class="card proj"><span class="tag">Digital · Ather</span><h3>ErgoTwin portal</h3><p>Replaced paper ergonomic assessments with automatic REBA scoring for each station and task, plus one traceable risk register.</p><div class="result">Standard, auditable risk data</div><div><span class="pill">Apps Script</span><span class="pill">REBA</span></div></article>
+    <article class="card proj"><span class="tag">Digital · Ather</span><h3>Process classification & skill matrix portal</h3><p>Role-based certification of operators on critical processes (L1–L4) across Production, IPQC and Maintenance, with IE and manager approval.</p><div class="result">Skill managed as a quality control</div><div><span class="pill">Skill matrix</span><span class="pill">Workflow</span></div></article>
+    <article class="card proj"><span class="tag">Capacity · Varroc & Denso</span><h3>SMED and bottleneck removal</h3><p>Standard, shorter changeovers on SMT and die-moulding lines, plus bottleneck removal on the TMC line.</p><div class="result">Setup −50%+ · TMC capacity +30%</div><div><span class="pill">SMED</span><span class="pill">OEE</span></div></article>
+    <article class="card proj"><span class="tag">NPD · Ather</span><h3>New products, first layout to SOP</h3><p>Rizta, EL and Transmission: MOST studies, REBA and line balancing built into the design, plus rework and warehouse expansions approved by DISH.</p><div class="result">Launch-ready standards from day one</div><div><span class="pill">MOST</span><span class="pill">AutoCAD</span><span class="pill">DISH</span></div></article>
+    <article class="card proj"><span class="tag">Productivity · Ather</span><h3>Productivity governance</h3><p>Loss analysis, line balancing, standard work and Kaizen reviews, reported through Power BI and monthly reviews.</p><div class="result">15% YoY across 170 people</div><div><span class="pill">Power BI</span><span class="pill">Kaizen</span></div></article>
+    <article class="card proj"><span class="tag">Flow · Denso</span><h3>Small-lot JIT and Kanban</h3><p>VSM-based master plan with Kanban links to suppliers. Smaller lots expose defects sooner and cut lead time.</p><div class="result">Lot size 4 bins → 1 bin</div><div><span class="pill">VSM</span><span class="pill">Kanban</span><span class="pill">TPS</span></div></article>
+  </div>
+</div></section>
+<section id="vsm"><div class="wrap">
+  <p class="eyebrow">Career value stream map</p>
+  <h2>My career, drawn as a value stream</h2>
+  <p class="lead">An industrial engineer's way to tell a career story. Each role is a process box, the data box shows what it delivered, kaizen bursts mark the headline improvements, and the skills carried forward sit in the inventory triangles.</p>
+  <div class="card vsm-card">
+    <div class="vsm-hint">Swipe sideways to see the full map →</div>
+    <div class="vsm-scroll"><svg class="vsm" id="vsmSvg" viewBox="0 0 1100 520" role="img" aria-label="Value stream map of Mayur Murade's career from Denso to Varroc to Ather Energy"></svg></div>
+    <div class="vsm-legend">
+      <span><svg width="22" height="14"><rect x="1" y="1" width="20" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>Process (role)</span>
+      <span><svg width="18" height="16"><polygon points="9,1 17,15 1,15" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>Inventory (skills carried)</span>
+      <span><svg width="18" height="18"><polygon points="9,0 11,6 18,5 13,10 16,17 9,13 2,17 5,10 0,5 7,6" fill="#eda100"/></svg>Kaizen burst (headline result)</span>
+      <span><svg width="30" height="10"><line x1="0" y1="5" x2="30" y2="5" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4"/></svg>Information flow</span>
+    </div>
+  </div>
+</div></section>
+<section id="career" style="background:var(--surface);border-block:1px solid var(--line)"><div class="wrap">
+  <p class="eyebrow">Career</p>
+  <h2>9+ years, three manufacturers</h2>
+  <div class="tl">
+    <div class="tl-item now card"><div class="tl-head"><div><h3>Assistant Manager, Continuous Improvement & Industrial Engineering</h3><span class="co">Ather Energy · Bengaluru</span></div><span class="when">Jun 2024 – Present</span></div>
+      <ul><li>Lead Manufacturing Excellence for the Vehicle and Battery plants in an Agile setup (PI planning, sprints, epics, key results).</li><li>Led the shift-timing redesign for 2,500+ employees; delivered 15% YoY productivity across 170 people.</li><li>Built the ErgoTwin and skill-matrix portals; took new products from first layout to SOP; delivered DISH-approved expansions.</li></ul></div>
+    <div class="tl-item card"><div class="tl-head"><div><h3>Lead Engineer, Centre of Competence, Manufacturing Excellence</h3><span class="co">Varroc · Pune</span></div><span class="when">Aug 2023 – May 2024</span></div>
+      <ul><li>FTR 58% → 92% through DMAIC; solder skips −20%; Traction Motor Controller capacity +30%.</li></ul></div>
+    <div class="tl-item card"><div class="tl-head"><div><h3>Assistant Manager, Lean Manufacturing</h3><span class="co">Varroc · Pune</span></div><span class="when">May 2021 – Aug 2023</span></div>
+      <ul><li>SMT setup −50%+ through SMED; labour cost −20% through OEE and motion studies; floor space use +10% through VSM.</li><li>Represented IE in productivity-standard negotiations with labour unions.</li></ul></div>
+    <div class="tl-item card"><div class="tl-head"><div><h3>Senior Engineer & Industrial Engineer</h3><span class="co">Denso Haryana · Manesar / Gurugram</span></div><span class="when">Aug 2017 – May 2021</span></div>
+      <ul><li>TPS, JIT and Kanban rollout; lot size 4 bins → 1 bin; die-moulding setup −50%+.</li><li>DIAT-certified Industrial Engineering trainer (Denso Asia HQ, Thailand).</li></ul></div>
+  </div>
+</div></section>
+<section><div class="wrap">
+  <p class="eyebrow">Toolkit</p>
+  <h2>Skills & tools</h2>
+  <div class="grid-2 skills" style="margin-top:28px">
+    <div class="card"><h4>Quality & statistics</h4><div class="chips"><span class="chip">DMAIC</span><span class="chip">Process capability (Cp/Cpk)</span><span class="chip">SPC</span><span class="chip">MSA / Gage R&R</span><span class="chip">FMEA</span><span class="chip">Root cause analysis</span><span class="chip">Hypothesis testing</span><span class="chip">Minitab</span></div></div>
+    <div class="card"><h4>Lean & industrial engineering</h4><div class="chips"><span class="chip">TPS</span><span class="chip">VSM</span><span class="chip">SMED</span><span class="chip">OEE</span><span class="chip">Kanban / JIT</span><span class="chip">MOST</span><span class="chip">Line balancing</span><span class="chip">REBA / RULA / NIOSH</span></div></div>
+    <div class="card"><h4>Digital & data</h4><div class="chips"><span class="chip">Power BI</span><span class="chip">SQL</span><span class="chip">R</span><span class="chip">Tableau</span><span class="chip">Google Apps Script</span><span class="chip">AutoCAD</span><span class="chip">SAP</span><span class="chip">Advanced Excel</span></div></div>
+    <div class="card"><h4>Ways of working</h4><div class="chips"><span class="chip">Agile / Scrum</span><span class="chip">PI planning</span><span class="chip">Epics & key results</span><span class="chip">Stakeholder alignment</span><span class="chip">Change management</span><span class="chip">Training & coaching</span></div></div>
+  </div>
+</div></section>
+<section style="padding-top:0"><div class="wrap">
+  <p class="eyebrow">Credentials</p>
+  <h2>Certifications & education</h2>
+  <div class="grid-3" style="margin-top:28px">
+    <div class="card cred"><div class="ic">★</div><div><h4>Certified Lean Six Sigma Black Belt</h4><p>Contiprove · ISO 13053-aligned · Oct 2024 · <a href="https://credential.certifyme.online/QRVerify/343d550b18448" target="_blank" rel="noopener">Verify</a></p></div></div>
+    <div class="card cred"><div class="ic">◆</div><div><h4>Certified Industrial Engineering Trainer</h4><p>DIAT, Denso Asia HQ, Thailand</p></div></div>
+    <div class="card cred"><div class="ic">▲</div><div><h4>Google Data Analytics</h4><p>Professional Certificate (SQL, R, Tableau) · 2024 · <a href="https://www.coursera.org/account/accomplishments/specialization/B6JHAQHGYQJE" target="_blank" rel="noopener">Verify</a></p></div></div>
+    <div class="card cred"><div class="ic">●</div><div><h4>MBA, Operations & Management</h4><p>Dr. D.Y. Patil Institute of Management, Pune</p></div></div>
+    <div class="card cred"><div class="ic">■</div><div><h4>B.E. Mechanical Engineering</h4><p>Dr. D.Y. Patil Institute of Engineering, Pune</p></div></div>
+    <div class="card cred"><div class="ic">▸</div><div><h4>Level 2 Industrial Engineering</h4><p>Denso · 2019</p></div></div>
+  </div>
+</div></section>
+<section id="contact" style="padding-top:0"><div class="wrap">
+  <div class="contact">
+    <h2>Let's connect</h2>
+    <p>Happy to connect on quality, Six Sigma and manufacturing excellence.</p>
+    <div class="cta" style="justify-content:center">
+      <a class="btn btn-primary" href="mailto:mayurmurade@gmail.com">Email me</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/mayur-murade" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</div></section>
+</main>
+<footer>© 2026 Mayur Murade</footer>
+<div class="tip" id="tip" role="status"></div>
+<script>
+(function(){
+  const data = [
+    {k:"Lot size (Kanban)", v:75, lbl:"−75%", note:"Denso: 4 bins → 1 bin through small-lot JIT"},
+    {k:"SMT setup time", v:50, lbl:"−50%+", note:"Varroc: SMED on SMT changeovers"},
+    {k:"Die-moulding setup time", v:50, lbl:"−50%+", note:"Denso: SMED and a structured fill-up system"},
+    {k:"Decanting cycle time", v:33.7, lbl:"−33.7%", note:"Ather: 4.00 → 2.652 min after MOST-based redesign"},
+    {k:"TMC line capacity", v:30, lbl:"+30%", note:"Varroc: bottleneck removal and line optimisation"},
+    {k:"Labour cost", v:20, lbl:"−20%", note:"Denso & Varroc: OEE, cycle-time and motion-study work"},
+    {k:"Solder skip defects", v:20, lbl:"−20%", note:"Varroc: PCBA/SMT unit"},
+    {k:"Labour productivity", v:15, lbl:"+15% YoY", note:"Ather: 170-person EV operation"},
+    {k:"Floor-space use", v:10, lbl:"+10%", note:"Varroc: VSM-led flow redesign"}
+  ];
+  const el = document.getElementById('impact'), tip = document.getElementById('tip');
+  function draw(){
+    const W = el.clientWidth || 800, narrow = W < 560;
+    const labelW = narrow ? 0 : 200, valW = 80, rowH = narrow ? 46 : 34, barH = 14, off = narrow ? 18 : 0;
+    const plotW = Math.max(80, W - labelW - valW);
+    const H = data.length * rowH + 24;
+    let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Bar chart of improvement percentages by project">`;
+    [0,25,50,75].forEach(t=>{const x=labelW+plotW*t/80;s+=`<line x1="${x}" x2="${x}" y1="0" y2="${H-20}" stroke="var(--line)" stroke-width="1"/><text x="${x}" y="${H-4}" font-size="11" fill="var(--ink-3)" text-anchor="middle">${t}%</text>`});
+    data.forEach((d,i)=>{
+      const y = i*rowH + (narrow ? off : (rowH-barH)/2), w = plotW*d.v/80;
+      s += `<g class="row" data-i="${i}">
+        <rect x="0" y="${i*rowH}" width="${W}" height="${rowH}" fill="transparent"/>
+        <text x="${narrow?0:labelW-12}" y="${narrow?y-5:y+barH-2}" font-size="13" fill="var(--ink-2)" text-anchor="${narrow?'start':'end'}">${d.k}</text>
+        <rect x="${labelW}" y="${y}" width="${w}" height="${barH}" rx="4" fill="var(--brand)"/>
+        <text x="${labelW+w+8}" y="${y+barH-2}" font-size="13" font-weight="700" fill="var(--ink)">${d.lbl}</text></g>`;
+    });
+    el.innerHTML = s + '</svg>';
+    el.querySelectorAll('.row').forEach(r=>{
+      const d = data[r.dataset.i];
+      r.addEventListener('mousemove',e=>{tip.innerHTML=`<b>${d.k}: ${d.lbl}</b><br>${d.note}`;tip.style.opacity=1;tip.style.left=Math.min(e.clientX+14,innerWidth-270)+'px';tip.style.top=(e.clientY+14)+'px';r.querySelector('rect[rx]').setAttribute('fill','var(--brand-ink)')});
+      r.addEventListener('mouseleave',()=>{tip.style.opacity=0;r.querySelector('rect[rx]').setAttribute('fill','var(--brand)')});
+    });
+  }
+  draw(); addEventListener('resize', draw);
+  const btn = document.getElementById('tblBtn'), wrap = document.getElementById('tblWrap');
+  wrap.innerHTML = '<table><thead><tr><th>Project</th><th>Result</th><th>Context</th></tr></thead><tbody>' + data.map(d=>`<tr><td>${d.k}</td><td><b>${d.lbl}</b></td><td>${d.note}</td></tr>`).join('') + '</tbody></table>';
+  btn.addEventListener('click',()=>{const o=wrap.hidden;wrap.hidden=!o;btn.textContent=o?'Hide table':'Show as table';btn.setAttribute('aria-expanded',o)});
+})();
+</script>
+<script>
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const svg = document.getElementById('vsmSvg');
+  const P = [
+    {x:40,  t:'Denso Haryana', r:'Industrial Eng. → Senior Eng.', d:'Aug 2017 – May 2021', yrs:'3.8 yrs', rows:['Lot size 4 → 1 bin','Die setup −50%+','DIAT-certified trainer'], k:'Lot −75%'},
+    {x:300, t:'Varroc', r:'Asst. Manager, Lean Mfg', d:'May 2021 – Aug 2023', yrs:'2.3 yrs', rows:['SMT setup −50%+','Labour cost −20%','Floor space +10%'], k:'SMED −50%'},
+    {x:560, t:'Varroc', r:'Lead Engineer, CoC Mfg Exc.', d:'Aug 2023 – May 2024', yrs:'0.8 yrs', rows:['FTR 58% → 92%','Solder skips −20%','TMC capacity +30%'], k:'FTR 92%'},
+    {x:820, t:'Ather Energy', r:'Asst. Manager, CI & IE', d:'Jun 2024 – Present', yrs:'2.4+ yrs', rows:['Productivity +15% YoY','Shift redesign, 2,500+','2 digital portals built'], k:'+15% YoY'}
+  ];
+  const inv = ['TPS · JIT · SMED','OEE · VSM · MOST','DMAIC · SPC · RCA'];
+  const W=180, PY=168, PH=74;
+  const star=(cx,cy,R,r)=>{let p=[];for(let i=0;i<20;i++){const a=Math.PI*i/10-Math.PI/2,rad=i%2?r:R;p.push((cx+rad*Math.cos(a)).toFixed(1)+','+(cy+rad*Math.sin(a)).toFixed(1))}return p.join(' ')};
+  let g='', d=0; const el=(c)=>{d+=0.08;return `<g class="v-el" style="transition-delay:${d.toFixed(2)}s">${c}</g>`};
+  g+=`<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink-2)"/></marker></defs>`;
+  // supplier & customer (factory icons)
+  const factory=(x,y,label,sub)=>`<path d="M${x} ${y+60} V${y+22} l26 -16 v16 l26 -16 v16 l26 -16 v16 h86 v44 z" fill="var(--surface-2)" stroke="var(--ink-2)" stroke-width="1.5"/><text x="${x+85}" y="${y+46}" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)">${label}</text><text x="${x+85}" y="${y+78}" text-anchor="middle" font-size="11" fill="var(--ink-3)">${sub}</text>`;
+  g+=el(factory(20,6,'Education','BE Mech + MBA Ops, Pune'));
+  g+=el(factory(910,6,'Next role','Quality & OpEx leadership'));
+  // info / control box
+  g+=el(`<rect x="400" y="14" width="300" height="54" rx="6" fill="var(--brand-soft)" stroke="var(--brand)" stroke-width="1.5"/><text x="550" y="37" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)">Control: Lean Six Sigma Black Belt</text><text x="550" y="56" text-anchor="middle" font-size="11" fill="var(--ink-2)">Data · DMAIC · Agile planning (PI, epics, KRs)</text>`);
+  // info flow lines
+  let info='';P.forEach(p=>{info+=`<path class="info" d="M550 68 V96 H${p.x+40} V${PY}" fill="none" stroke="var(--brand)" stroke-width="1.3" marker-end="url(#ah)"/>`});
+  g+=el(info);
+  // supplier -> P1, P4 -> customer
+  g+=el(`<path class="push" d="M70 94 V${PY-2}" stroke="var(--ink-2)" stroke-width="2" fill="none" marker-end="url(#ah)"/><path class="push" d="M${820+W-80} ${PY} V76" stroke="var(--ink-2)" stroke-width="2" fill="none" marker-end="url(#ah)"/>`);
+  P.forEach((p,i)=>{
+    // process box
+    g+=el(`<g class="proc" data-i="${i}"><title>${p.t}: ${p.r} (${p.d})</title><rect class="box" x="${p.x}" y="${PY}" width="${W}" height="${PH}" rx="4" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.8"/><line x1="${p.x}" y1="${PY+26}" x2="${p.x+W}" y2="${PY+26}" stroke="var(--ink)" stroke-width="1"/><text x="${p.x+W/2}" y="${PY+18}" text-anchor="middle" font-size="13" font-weight="800" fill="var(--ink)">${p.t}</text><text x="${p.x+W/2}" y="${PY+46}" text-anchor="middle" font-size="10.5" fill="var(--ink-2)">${p.r}</text><text x="${p.x+W/2}" y="${PY+63}" text-anchor="middle" font-size="10.5" fill="var(--ink-3)">${p.d}</text></g>`);
+    // data box
+    let rows=''; p.rows.forEach((r,j)=>{rows+=`<text x="${p.x+10}" y="${PY+PH+30+j*20}" font-size="11.5" fill="var(--ink)">${r}</text>`; if(j<2) rows+=`<line x1="${p.x}" x2="${p.x+W}" y1="${PY+PH+36+j*20}" y2="${PY+PH+36+j*20}" stroke="var(--line)"/>`});
+    g+=el(`<rect x="${p.x}" y="${PY+PH+12}" width="${W}" height="66" fill="var(--surface)" stroke="var(--ink-3)" stroke-width="1"/>${rows}`);
+    // kaizen burst
+    const cx=p.x+W-22, cy=PY-18;
+    g+=`<g class="burst" style="animation-delay:${(0.9+i*0.2).toFixed(1)}s"><polygon points="${star(cx,cy,34,22)}" fill="#eda100" stroke="#b97900" stroke-width="1"/><text x="${cx}" y="${cy+4}" text-anchor="middle" font-size="8.5" font-weight="800" fill="#1b1500">${p.k}</text></g>`;
+    // inventory + push arrow to next
+    if(i<3){const gx=p.x+W, cx2=gx+40;
+      g+=el(`<polygon points="${cx2},${PY+4} ${cx2+15},${PY+30} ${cx2-15},${PY+30}" fill="#eda1001f" stroke="var(--ink)" stroke-width="1.5"/><text x="${cx2}" y="${PY+26}" text-anchor="middle" font-size="12" font-weight="800" fill="var(--ink)">I</text><text x="${cx2}" y="${PY+PH+4}" text-anchor="middle" font-size="9.5" fill="var(--ink-2)">${inv[i].split(' · ').slice(0,2).join(' · ')}</text><path class="push" d="M${gx+4} ${PY+48} H${gx+76}" stroke="var(--ink-2)" stroke-width="2.5" fill="none" marker-end="url(#ah)"/>`);
+    }
+  });
+  // timeline ladder
+  const LY1=372, LY2=412; let path=`M40 ${LY2}`; P.forEach((p,i)=>{path+=` H${p.x+W}`; if(i<3){path+=` V${LY1} H${P[i+1].x} V${LY2}`}});
+  let lad=`<path d="M40 ${LY1} V${LY2}" stroke="var(--ink-2)" stroke-width="1.5" fill="none"/><path d="${path}" stroke="var(--ink)" stroke-width="2" fill="none"/>`;
+  P.forEach(p=>{lad+=`<text x="${p.x+W/2}" y="${LY2+22}" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)">${p.yrs}</text>`});
+  P.slice(0,3).forEach((p,i)=>{lad+=`<text x="${p.x+W+40}" y="${LY1-8}" text-anchor="middle" font-size="10" fill="var(--ink-3)">carried</text>`});
+  lad+=`<rect x="390" y="456" width="320" height="50" rx="8" fill="var(--surface-2)" stroke="var(--line)"/><text x="550" y="477" text-anchor="middle" font-size="13" font-weight="800" fill="var(--ink)">Lead time: 9+ years</text><text x="550" y="495" text-anchor="middle" font-size="11" fill="var(--ink-2)">3 manufacturers · 4 roles · value added at every stage</text>`;
+  g+=el(lad);
+  svg.innerHTML=g;
+  // hover on process → highlight matching timeline card
+  svg.querySelectorAll('.proc').forEach(pr=>pr.addEventListener('click',()=>{const items=document.querySelectorAll('.tl-item');const map=[3,2,1,0];const t=items[map[pr.dataset.i]];if(t){t.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});t.style.borderColor='var(--brand)';setTimeout(()=>t.style.borderColor='',1800)}}));
+  const targets=document.querySelectorAll('main .eyebrow, main h2, main .lead, .card, .tl-item');
+  targets.forEach(t=>{ if(!t.closest('.hero')) t.classList.add('reveal') });
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+  document.querySelectorAll('.reveal, .flow, .ba, .vsm').forEach(t=>io.observe(t));
+  // stagger cards inside grids
+  document.querySelectorAll('.grid-3, .grid-2').forEach(gr=>[...gr.children].forEach((c,i)=>c.style.transitionDelay=(i%3*0.08)+'s'));
+  document.querySelectorAll('[data-to]').forEach(n=>{
+    const to=+n.dataset.to, comma=n.dataset.fmt==='comma'; if(reduce) return;
+    const t0=performance.now()+500, dur=1400;
+    const tick=now=>{const k=Math.min(1,Math.max(0,(now-t0)/dur)), e=1-Math.pow(1-k,3), v=Math.round(to*e);
+      n.textContent=comma?v.toLocaleString('en-US'):v; if(k<1) requestAnimationFrame(tick)};
+    n.textContent='0'; requestAnimationFrame(tick);
+  });
+  const impact=document.getElementById('impact');
+  const growBars=()=>{ if(reduce) return; impact.querySelectorAll('rect[rx]').forEach((r,i)=>{const w=r.getAttribute('width');r.setAttribute('width',0);r.style.transition='none';
+      requestAnimationFrame(()=>{r.style.transition=`width .9s cubic-bezier(.2,.7,.2,1) ${i*0.07}s`;r.setAttribute('width',w)})})};
+  new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){growBars();o.disconnect()}}),{threshold:.3}).observe(impact);
+})();
+</script>
 </body>
 </html>
